@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHospitalUserTable extends Migration
+class CreatePracticeUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,19 @@ class CreateHospitalUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('hospital_user', function (Blueprint $table) {
+        Schema::create('practice_user', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('hospital_id')->unsigned();;
+            $table->integer('practice_id')->unsigned();;
 
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');            
 
-            $table->foreign('hospital_id')
+            $table->foreign('practice_id')
                 ->references('id')
-                ->on('hospitals')
+                ->on('practices')
                 ->onDelete('cascade');
 
             $table->timestamps();
@@ -39,6 +39,6 @@ class CreateHospitalUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hospital_user');
+        Schema::dropIfExists('practice_user');
     }
 }

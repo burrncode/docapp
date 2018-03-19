@@ -12,10 +12,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/owl_carousal.css') }}" rel="stylesheet">
+
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -41,6 +43,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ route('register') }}"><i class="fa fa-comment"></i> Doctify Journal</a></li>
+                        <li><a href="{{ route('register') }}"><i class="fa fa-star"></i> Write a Review</a></li>
+                        <li><a href="{{ route('register') }}"><i class="fa fa-medkit"></i> Are you a Specialist?</a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
@@ -72,9 +77,12 @@
         </nav>
 
         @yield('content')
+
+        @include('layouts.footer')
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://use.fontawesome.com/874dbadbd7.js"></script>
 </body>
 </html>

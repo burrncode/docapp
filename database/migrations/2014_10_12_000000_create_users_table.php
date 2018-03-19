@@ -19,16 +19,16 @@ class CreateUsersTable extends Migration
                 $table->string('name');
                 $table->string('email')->unique();
                 $table->string('password');
+    
+                $table->integer('role_id')->unsigned()->default(3);
+                $table->string('first_name');
+                $table->string('last_name');
+                $table->string('profile_image');
+    
                 $table->rememberToken();
                 $table->timestamps();
             });
         };
-
-        Schema::table('users', function (Blueprint $table) {
-            $table->integer('role_id')->unsigned();
-            $table->string('first_name');
-            $table->string('last_name');
-        });
     }
 
     /**
