@@ -27,18 +27,38 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function specialities()
-    {
-        return $this->hasMany('App\Model\Speciality');
-    }
-
     public function comments()
     {
-        return $this>hasMany('App\Model\Comment')
+        return $this->hasMany('App\Comment');
     }
 
     public function role()
     {
-        return $this->belongsTo('App\Model\Role');
+        return $this->belongsTo('App\Role');
+    }
+
+    public function patient()
+    {
+        return $this->hasOne('App\Patient');
+    }
+
+    public function doctor()
+    {
+        return $this->hasOne('App\Doctor');
+    }
+
+    public function practices()
+    {
+        return $this->belongsToMany('App\Practice');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }    
+
+    public function addresses()
+    {
+        return $this->morphBy('App\Address', 'addressable');
     }
 }
