@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/owl_carousal.css') }}" rel="stylesheet">
-
-<body>
+@include('layouts.header')
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top navbar-fixed-top">
+        @include('partials.signup')
+
+        <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -31,7 +16,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Doctify') }}
                     </a>
                 </div>
 
@@ -43,13 +28,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ route('register') }}"><i class="fa fa-comment"></i> Doctify Journal</a></li>
-                        <li><a href="{{ route('register') }}"><i class="fa fa-star"></i> Write a Review</a></li>
-                        <li><a href="{{ route('register') }}"><i class="fa fa-medkit"></i> Are you a Specialist?</a></li>
+                        <li><a href=""><i class="fa fa-comment"></i> Doctify Journal</a></li>
+                        <li><a href=""><i class="fa fa-star"></i> Write a Review</a></li>
+                        <li><a href=""><i class="fa fa-medkit"></i> Are you a Specialist?</a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signUp">Sign Up</button></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -60,7 +45,7 @@
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();">register
                                             Logout
                                         </a>
 

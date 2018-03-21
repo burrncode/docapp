@@ -11,16 +11,24 @@
                 <div class="md-form">
                     <div class="col-md-3">
                         <select class="form-control" name="speciality">
+                            <option value="">  Select Speciality  </option>
                             @foreach ($specialities as $speciality)
                                 <option value="{{$speciality->id}}">{{$speciality->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <input class="form-control" type="text" placeholder="Enter your location" aria-label="Search">
+                        <div class="input-group">
+                          <input class="form-control" type="text" placeholder="Enter your location" aria-label="Search">
+                          <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" aria-label="Help"><i class="fa fa-map-marker"></i></button>
+                          </div>
+                        </div>
+                        
                     </div>
                     <div class="col-md-3">
                         <select class="form-control" name="insurer">
+                            <option value="">  Select Insurer  </option>
                             @foreach ($insurers as $insurer)
                                 <option value="{{$insurer->id}}">{{$insurer->name}}</option>
                             @endforeach

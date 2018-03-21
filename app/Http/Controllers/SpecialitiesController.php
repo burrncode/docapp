@@ -41,12 +41,13 @@ class SpecialitiesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Speciality  $speciality
+     * @param  string  $speciality
      * @return \Illuminate\Http\Response
      */
-    public function show(Speciality $speciality)
+    public function show($speciality)
     {
-        //
+        $speciality = Speciality::where('name', $speciality)->first();
+        return view('pages.speciality.show', ['speciality' => $speciality]);
     }
 
     /**
